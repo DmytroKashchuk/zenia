@@ -1,0 +1,967 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WordPress / WooCommerce UI Playground</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home page woocommerce">
+
+  <header>
+
+    <h1>
+      <a href="/">My Store</a>
+    </h1>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">My Account</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- HEADINGS -->
+
+    <h1 class="wp-block-heading">
+      Heading Level 1
+    </h1>
+
+    <h2 class="wp-block-heading">
+      Heading Level 2
+    </h2>
+
+    <h3 class="wp-block-heading">
+      Heading Level 3
+    </h3>
+
+    <h4 class="wp-block-heading">
+      Heading Level 4
+    </h4>
+
+    <h5 class="wp-block-heading">
+      Heading Level 5
+    </h5>
+
+    <h6 class="wp-block-heading">
+      Heading Level 6
+    </h6>
+
+
+    <!-- TEXT -->
+
+    <p>
+      This is a regular paragraph. Use it to style typography,
+      spacing, colors, links and other basic text properties.
+    </p>
+
+    <p>
+      <strong>Strong text</strong>,
+      <em>italic text</em>,
+      <small>small text</small>,
+      <mark>highlighted text</mark>,
+      <del>deleted text</del>,
+      <ins>inserted text</ins>.
+    </p>
+
+    <p>
+      This paragraph contains a
+      <a href="#">regular link</a>.
+    </p>
+
+
+    <!-- BLOCKQUOTE -->
+
+    <blockquote class="wp-block-quote">
+      <p>
+        Good design is as little design as possible.
+      </p>
+
+      <cite>
+        Example Author
+      </cite>
+    </blockquote>
+
+
+    <!-- CODE -->
+
+    <p>
+      Inline code:
+      <code>display: flex;</code>
+    </p>
+
+    <pre class="wp-block-code">
+        <code>body {
+            margin: 0;
+            font-family: sans-serif;
+            }
+        </code>
+    </pre>
+
+
+    <!-- SEPARATOR -->
+
+    <hr class="wp-block-separator">
+
+
+    <!-- LISTS -->
+
+    <h2 class="wp-block-heading">
+      Lists
+    </h2>
+
+    <ul>
+      <li>First list item</li>
+      <li>Second list item</li>
+      <li>Third list item</li>
+      <li>
+        Nested list
+        <ul>
+          <li>Nested item</li>
+          <li>Another nested item</li>
+        </ul>
+      </li>
+    </ul>
+
+    <ol>
+      <li>First step</li>
+      <li>Second step</li>
+      <li>Third step</li>
+    </ol>
+
+
+    <!-- IMAGE -->
+
+    <h2 class="wp-block-heading">
+      Images
+    </h2>
+
+    <figure class="wp-block-image">
+      <img
+        src="https://placehold.co/800x500"
+        alt="Example image"
+        width="800"
+        height="500"
+      >
+
+      <figcaption class="wp-element-caption">
+        Example image caption
+      </figcaption>
+    </figure>
+
+
+    <!-- BUTTONS -->
+
+    <h2 class="wp-block-heading">
+      Buttons
+    </h2>
+
+    <div class="wp-block-buttons">
+
+      <div class="wp-block-button">
+        <a class="wp-block-button__link wp-element-button" href="#">
+          WordPress Button
+        </a>
+      </div>
+
+      <div class="wp-block-button is-style-outline">
+        <a class="wp-block-button__link wp-element-button" href="#">
+          Outline Button
+        </a>
+      </div>
+
+    </div>
+
+    <p>
+      <button type="button">
+        Native Button
+      </button>
+
+      <button type="button" disabled>
+        Disabled Button
+      </button>
+    </p>
+
+
+    <!-- DETAILS -->
+
+    <h2 class="wp-block-heading">
+      Details
+    </h2>
+
+    <details>
+      <summary>
+        Frequently Asked Question
+      </summary>
+
+      <p>
+        This is the answer inside a native details element.
+      </p>
+    </details>
+
+
+    <!-- TABLE -->
+
+    <h2 class="wp-block-heading">
+      Table
+    </h2>
+
+    <figure class="wp-block-table">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Classic T-Shirt</td>
+            <td>Clothing</td>
+            <td>$29.00</td>
+            <td>In stock</td>
+          </tr>
+
+          <tr>
+            <td>Leather Bag</td>
+            <td>Accessories</td>
+            <td>$89.00</td>
+            <td>In stock</td>
+          </tr>
+
+          <tr>
+            <td>Running Shoes</td>
+            <td>Shoes</td>
+            <td>$120.00</td>
+            <td>Out of stock</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </figure>
+
+
+    <!-- FORM -->
+
+    <h2 class="wp-block-heading">
+      Form Elements
+    </h2>
+
+    <form>
+
+      <p>
+        <label for="name">
+          Name
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Your name"
+        >
+      </p>
+
+
+      <p>
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+        >
+      </p>
+
+
+      <p>
+        <label for="password">
+          Password
+        </label>
+
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Password"
+        >
+      </p>
+
+
+      <p>
+        <label for="phone">
+          Phone
+        </label>
+
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          placeholder="+1 000 000 0000"
+        >
+      </p>
+
+
+      <p>
+        <label for="number">
+          Quantity
+        </label>
+
+        <input
+          id="number"
+          type="number"
+          name="quantity"
+          min="1"
+          value="1"
+        >
+      </p>
+
+
+      <p>
+        <label for="search">
+          Search
+        </label>
+
+        <input
+          id="search"
+          type="search"
+          name="search"
+          placeholder="Search..."
+        >
+      </p>
+
+
+      <p>
+        <label for="country">
+          Country
+        </label>
+
+        <select id="country" name="country">
+          <option value="">Select a country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>Ukraine</option>
+        </select>
+      </p>
+
+
+      <p>
+        <label>
+          <input type="checkbox">
+          Remember me
+        </label>
+      </p>
+
+
+      <p>
+        <label>
+          <input type="radio" name="shipping">
+          Standard Shipping
+        </label>
+
+        <br>
+
+        <label>
+          <input type="radio" name="shipping">
+          Express Shipping
+        </label>
+      </p>
+
+
+      <p>
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Your message"
+        ></textarea>
+      </p>
+
+
+      <p>
+        <button type="submit">
+          Submit
+        </button>
+      </p>
+
+    </form>
+
+
+    <hr class="wp-block-separator">
+
+
+    <!-- WOOCOMMERCE PRODUCT LOOP -->
+
+    <h2 class="wp-block-heading">
+      Products
+    </h2>
+
+    <ul class="products columns-3">
+
+      <li class="product type-product instock purchasable">
+
+        <a
+          href="#"
+          class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+        >
+
+          <img
+            src="https://placehold.co/600x600"
+            alt="Classic T-Shirt"
+            class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+          >
+
+          <h2 class="woocommerce-loop-product__title">
+            Classic T-Shirt
+          </h2>
+
+          <span class="price">
+            <span class="woocommerce-Price-amount amount">
+              <bdi>
+                <span class="woocommerce-Price-currencySymbol">$</span>29.00
+              </bdi>
+            </span>
+          </span>
+
+        </a>
+
+        <a
+          href="#"
+          class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+        >
+          Add to cart
+        </a>
+
+      </li>
+
+
+      <li class="product type-product instock purchasable sale">
+
+        <a
+          href="#"
+          class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+        >
+
+          <span class="onsale">
+            Sale!
+          </span>
+
+          <img
+            src="https://placehold.co/600x600"
+            alt="Leather Bag"
+            class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+          >
+
+          <h2 class="woocommerce-loop-product__title">
+            Leather Bag
+          </h2>
+
+          <span class="price">
+
+            <del>
+              <span class="woocommerce-Price-amount amount">
+                <bdi>
+                  <span class="woocommerce-Price-currencySymbol">$</span>120.00
+                </bdi>
+              </span>
+            </del>
+
+            <ins>
+              <span class="woocommerce-Price-amount amount">
+                <bdi>
+                  <span class="woocommerce-Price-currencySymbol">$</span>89.00
+                </bdi>
+              </span>
+            </ins>
+
+          </span>
+
+        </a>
+
+        <a
+          href="#"
+          class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+        >
+          Add to cart
+        </a>
+
+      </li>
+
+
+      <li class="product type-product outofstock">
+
+        <a
+          href="#"
+          class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+        >
+
+          <img
+            src="https://placehold.co/600x600"
+            alt="Running Shoes"
+            class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+          >
+
+          <h2 class="woocommerce-loop-product__title">
+            Running Shoes
+          </h2>
+
+          <span class="price">
+            <span class="woocommerce-Price-amount amount">
+              <bdi>
+                <span class="woocommerce-Price-currencySymbol">$</span>120.00
+              </bdi>
+            </span>
+          </span>
+
+        </a>
+
+        <a
+          href="#"
+          class="button product_type_simple"
+        >
+          Read more
+        </a>
+
+      </li>
+
+    </ul>
+
+
+    <hr class="wp-block-separator">
+
+
+    <!-- SINGLE PRODUCT -->
+
+    <div class="product type-product">
+
+      <span class="onsale">
+        Sale!
+      </span>
+
+      <div class="woocommerce-product-gallery">
+
+        <figure class="woocommerce-product-gallery__wrapper">
+
+          <div class="woocommerce-product-gallery__image">
+            <img
+              src="https://placehold.co/800x800"
+              alt="Example Product"
+            >
+          </div>
+
+        </figure>
+
+      </div>
+
+
+      <div class="summary entry-summary">
+
+        <h1 class="product_title entry-title">
+          Example Product
+        </h1>
+
+        <p class="price">
+
+          <del>
+            <span class="woocommerce-Price-amount amount">
+              <bdi>
+                <span class="woocommerce-Price-currencySymbol">$</span>99.00
+              </bdi>
+            </span>
+          </del>
+
+          <ins>
+            <span class="woocommerce-Price-amount amount">
+              <bdi>
+                <span class="woocommerce-Price-currencySymbol">$</span>79.00
+              </bdi>
+            </span>
+          </ins>
+
+        </p>
+
+
+        <div class="woocommerce-product-details__short-description">
+
+          <p>
+            A short product description goes here.
+            Use this area to test product typography and spacing.
+          </p>
+
+        </div>
+
+
+        <p class="stock in-stock">
+          In stock
+        </p>
+
+
+        <form class="cart">
+
+          <div class="quantity">
+
+            <label for="product-quantity">
+              Quantity
+            </label>
+
+            <input
+              id="product-quantity"
+              type="number"
+              class="input-text qty text"
+              value="1"
+              min="1"
+            >
+
+          </div>
+
+          <button
+            type="submit"
+            class="single_add_to_cart_button button alt"
+          >
+            Add to cart
+          </button>
+
+        </form>
+
+
+        <div class="product_meta">
+
+          <span class="sku_wrapper">
+            SKU:
+            <span class="sku">
+              PRODUCT-001
+            </span>
+          </span>
+
+          <span class="posted_in">
+            Category:
+            <a href="#">
+              Clothing
+            </a>
+          </span>
+
+          <span class="tagged_as">
+            Tags:
+            <a href="#">Summer</a>,
+            <a href="#">Casual</a>
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <hr class="wp-block-separator">
+
+
+    <!-- WOOCOMMERCE NOTICES -->
+
+    <h2 class="wp-block-heading">
+      WooCommerce Notices
+    </h2>
+
+    <div class="woocommerce-message" role="alert">
+      Product has been added to your cart.
+    </div>
+
+    <div class="woocommerce-info">
+      Have a coupon? Click here to enter your code.
+    </div>
+
+    <ul class="woocommerce-error" role="alert">
+      <li>
+        Please enter a valid email address.
+      </li>
+    </ul>
+
+
+    <!-- CART TABLE -->
+
+    <h2 class="wp-block-heading">
+      Cart
+    </h2>
+
+    <form class="woocommerce-cart-form">
+
+      <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
+
+        <thead>
+          <tr>
+            <th class="product-remove"></th>
+            <th class="product-thumbnail"></th>
+            <th class="product-name">Product</th>
+            <th class="product-price">Price</th>
+            <th class="product-quantity">Quantity</th>
+            <th class="product-subtotal">Subtotal</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+
+          <tr class="woocommerce-cart-form__cart-item cart_item">
+
+            <td class="product-remove">
+              <a href="#" class="remove">
+                ×
+              </a>
+            </td>
+
+            <td class="product-thumbnail">
+              <img
+                src="https://placehold.co/150x150"
+                alt="Classic T-Shirt"
+              >
+            </td>
+
+            <td class="product-name">
+              <a href="#">
+                Classic T-Shirt
+              </a>
+            </td>
+
+            <td class="product-price">
+              <span class="woocommerce-Price-amount amount">
+                <bdi>
+                  <span class="woocommerce-Price-currencySymbol">$</span>29.00
+                </bdi>
+              </span>
+            </td>
+
+            <td class="product-quantity">
+
+              <div class="quantity">
+
+                <input
+                  type="number"
+                  class="input-text qty text"
+                  value="1"
+                  min="0"
+                >
+
+              </div>
+
+            </td>
+
+            <td class="product-subtotal">
+              <span class="woocommerce-Price-amount amount">
+                <bdi>
+                  <span class="woocommerce-Price-currencySymbol">$</span>29.00
+                </bdi>
+              </span>
+            </td>
+
+          </tr>
+
+
+          <tr>
+            <td colspan="6" class="actions">
+
+              <div class="coupon">
+
+                <label for="coupon_code">
+                  Coupon:
+                </label>
+
+                <input
+                  type="text"
+                  name="coupon_code"
+                  class="input-text"
+                  id="coupon_code"
+                  placeholder="Coupon code"
+                >
+
+                <button
+                  type="submit"
+                  class="button"
+                >
+                  Apply coupon
+                </button>
+
+              </div>
+
+              <button
+                type="submit"
+                class="button"
+              >
+                Update cart
+              </button>
+
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </form>
+
+
+    <!-- CART TOTALS -->
+
+    <div class="cart_totals">
+
+      <h2>
+        Cart totals
+      </h2>
+
+      <table class="shop_table shop_table_responsive">
+
+        <tbody>
+
+          <tr class="cart-subtotal">
+            <th>Subtotal</th>
+
+            <td>
+              <span class="woocommerce-Price-amount amount">
+                <bdi>
+                  <span class="woocommerce-Price-currencySymbol">$</span>29.00
+                </bdi>
+              </span>
+            </td>
+          </tr>
+
+
+          <tr class="order-total">
+            <th>Total</th>
+
+            <td>
+              <strong>
+                <span class="woocommerce-Price-amount amount">
+                  <bdi>
+                    <span class="woocommerce-Price-currencySymbol">$</span>29.00
+                  </bdi>
+                </span>
+              </strong>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+
+      <div class="wc-proceed-to-checkout">
+
+        <a
+          href="#"
+          class="checkout-button button alt wc-forward"
+        >
+          Proceed to checkout
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <hr class="wp-block-separator">
+
+
+    <!-- PAGINATION -->
+
+    <nav class="woocommerce-pagination">
+
+      <ul class="page-numbers">
+
+        <li>
+          <a class="prev page-numbers" href="#">
+            ←
+          </a>
+        </li>
+
+        <li>
+          <a class="page-numbers" href="#">
+            1
+          </a>
+        </li>
+
+        <li>
+          <span
+            aria-current="page"
+            class="page-numbers current"
+          >
+            2
+          </span>
+        </li>
+
+        <li>
+          <a class="page-numbers" href="#">
+            3
+          </a>
+        </li>
+
+        <li>
+          <a class="next page-numbers" href="#">
+            →
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      © 2026 My Store
+    </p>
+
+    <nav>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </nav>
+
+  </footer>
+
+</body>
+</html>

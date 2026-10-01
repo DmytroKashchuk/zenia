@@ -1,0 +1,357 @@
+/* ==========================================================================
+   PRODUCT CARD TYPOGRAPHY — Shop
+   --------------------------------------------------------------------------
+   Цель: чёткая визуальная иерархия внутри карточки.
+   Порядок приоритета (сверху вниз по весу):
+     1. Цена (current)      — самый сильный акцент
+     2. Название товара     — читаемо, но не «кричит»
+     3. Sale badge          — метка, не перетягивает внимание
+     4. Кнопка              — ровная, стабильная
+     5. Рейтинг             — вторичный, деликатный
+     6. Old price / meta    — самый тихий слой
+   Зависит от токенов ui.css (--fs-*, --lh-*, --fw-*).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. GRID-КАРТОЧКА — вертикальный ритм
+   --------------------------------------------------------------------------
+   Единый gap между блоками: 8px. Внутри блоков — свои отступы.
+   Это убирает «прыгающие» отступы, когда у карточек разная длина текста.
+   ========================================================================== */
+
+.products .product{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 16px 18px;
+}
+
+/* Обёртка-ссылка (картинка + текст) — тоже flex-колонка */
+.products .product .woocommerce-loop-product__link,
+.products .product .woocommerce-LoopProduct-link{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Картинка — фиксированный aspect, без сюрпризов */
+.products .product .woocommerce-loop-product__link img,
+.products .product .woocommerce-LoopProduct-link img{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 6px;   /* визуальный «воздух» между фото и текстом */
+}
+
+/* ==========================================================================
+   2. НАЗВАНИЕ ТОВАРА
+   --------------------------------------------------------------------------
+   Было: 18px / 500 / 3 строки, «жирный» для иерархии
+   Стало: 15px / 500 / 2 строки, стабильная высота для выравнивания сетки
+
+   Почему 15px: цена 18px = сильный акцент, название должно её поддерживать,
+   а не конкурировать. При 4 колонках на 1500px это оптимальная читаемость.
+   ========================================================================== */
+
+.products .product .woocommerce-loop-product__title{
+    /* размер и начертание */
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--heading, #1a1a1a);
+
+    /* обрезка по 2 строкам + фиксированная высота → ряды не «пляшут» */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(1.4em * 2);
+    max-height: calc(1.4em * 2);
+
+    /* сброс возможных паддингов из woocommerce.css */
+    margin: 0;
+    padding: 0;
+
+    transition: color .2s ease;
+}
+
+.products .product .woocommerce-loop-product__title:hover{
+    color: var(--link-hover-color, #db0000);
+    text-decoration: none;   /* вместо подчёркивания — смена цвета (чище) */
+}
+
+/* ==========================================================================
+   3. РЕЙТИНГ
+   --------------------------------------------------------------------------
+   Вторичный слой. Звёзды 12px, текст 12px, серый.
+   Одна линия. Всегда одинаковая высота, даже если рейтинга нет.
+   ========================================================================== */
+
+.products .product .woocommerce-rating{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 16px;   /* резерв под строку даже без отзывов */
+    font-size: 12px;
+    line-height: 1;
+    color: var(--body, #5c5c5c);
+}
+
+.products .product .woocommerce-rating > span{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--body, #5c5c5c);
+    letter-spacing: 0;
+}
+
+.products .product .star-rating{
+    font-size: 12px;
+    line-height: 1;
+    width: 5.4em;
+    height: 1em;
+    color: #f7a92f;
+}
+.products .product .star-rating::before{
+    color: #cfcfcf;
+}
+
+/* ==========================================================================
+   4. ЦЕНА — главный акцент
+   --------------------------------------------------------------------------
+   Три уровня:
+     • "From / To"   → 13px / 400 / muted    (служебное слово)
+     • current price → 18px / 700 / heading  (главный)
+     • old price     → 14px / 400 / #9a9a9a  (зачёркнуто, тихо)
+
+   Порядок в разметке Woo: <del> (old) идёт первым, <ins> (current) — вторым.
+   Визуально меняем через flex order: current — слева, old — справа.
+   ========================================================================== */
+
+.products .product .price{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 8px;
+    margin-top: auto;            /* прижимает цену к низу ссылки */
+    padding-top: 4px;
+    font-size: 0;                /* убираем пустые пробелы вокруг span'ов */
+    line-height: 1.2;
+}
+
+/* Метки "From" / "To" — muted, в 2 раза тише цены */
+.products .product .price > span[aria-hidden="true"]{
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--body, #5c5c5c);
+    line-height: 1.2;
+}
+
+/* Текущая цена — акцент */
+.products .product .price ins{
+    order: 1;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading, #1a1a1a);
+    letter-spacing: -.005em;
+}
+
+.products .product .price ins .woocommerce-Price-amount,
+.products .product .price .woocommerce-Price-amount{
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Валюта — чуть меньше, чем число */
+.products .product .price .woocommerce-Price-currencySymbol{
+    font-size: .85em;
+    font-weight: 600;
+    margin-right: 1px;
+}
+
+/* Старая цена — тихо, зачёркнуто */
+.products .product .price del{
+    order: 2;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(154, 154, 154, .7);
+    color: #9a9a9a;
+}
+.products .product .price del .woocommerce-Price-amount{
+    font-size: 14px;
+    font-weight: 400;
+    color: #9a9a9a;
+}
+
+/* Для товаров без скидки — цена одна, без order-магии */
+.products .product .price:not(:has(del)) .woocommerce-Price-amount{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--heading, #1a1a1a);
+}
+
+/* Диапазонная цена (From X to Y) — оба "ins" одного размера */
+.products .product .price:has(ins ~ ins) ins{
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   5. SALE BADGE
+   --------------------------------------------------------------------------
+   Было: 14px / 400 (weak)
+   Стало: 11px / 700 / uppercase / letter-spacing .04em
+   Не перетягивает внимание с цены, но заметен.
+   ========================================================================== */
+
+.products .product .onsale{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 10px;
+    border-radius: 999px;
+    background-color: var(--secondary-color, #db0000);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+
+    min-width: auto;
+    min-height: auto;
+
+    /* позиция — ближе к углу, аккуратнее */
+    top: 22px;
+    right: 22px;
+}
+
+/* ==========================================================================
+   6. КНОПКА ADD TO CART
+   --------------------------------------------------------------------------
+   Единый размер с остальными интерактивными элементами сайта (14–15px).
+   Убрали 18px — он конкурировал с ценой.
+   ========================================================================== */
+
+.products .product .button.add_to_cart_button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    margin-top: 4px;
+
+    background-color: var(--button-default-bg-color, #000);
+    color: var(--button-default-text-color, #fff);
+    border: 0;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: .02em;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: background-color .2s ease, color .2s ease;
+}
+.products .product .button.add_to_cart_button:hover{
+    background-color: var(--button-hover-bg-color, #db0000);
+    color: #fff;
+}
+
+/* ==========================================================================
+   7. LIST VIEW — типографика перестраивается
+   --------------------------------------------------------------------------
+   В list-режиме карточка широкая → можно вернуть крупный тайтл и цену.
+   ========================================================================== */
+
+.products.products--list .product{
+    gap: 10px;
+}
+
+.products.products--list .woocommerce-loop-product__title{
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    min-height: 0;
+    max-height: none;
+}
+
+.products.products--list .price ins{
+    font-size: 22px;
+}
+
+.products.products--list .price del .woocommerce-Price-amount{
+    font-size: 16px;
+}
+
+.products.products--list .button.add_to_cart_button{
+    width: auto;
+    max-width: 240px;
+    min-height: 46px;
+    font-size: 15px;
+    align-self: flex-start;
+}
+
+/* ==========================================================================
+   8. МИКРО-АДАПТАЦИЯ
+   --------------------------------------------------------------------------
+   На очень узких экранах (2 колонки) — чуть меньше тайтл, чтобы влезал.
+   На широких (4 колонки) — можно оставить как есть.
+   ========================================================================== */
+
+@media (max-width: 600px){
+    .products .product .woocommerce-loop-product__title{
+        font-size: 14px;
+    }
+    .products .product .price ins,
+    .products .product .price:not(:has(del)) .woocommerce-Price-amount{
+        font-size: 16px;
+    }
+    .products .product .button.add_to_cart_button{
+        font-size: 13px;
+        min-height: 42px;
+    }
+}
+
+@media (min-width: 1400px){
+    .products .product .woocommerce-loop-product__title{
+        font-size: 16px;
+    }
+    .products .product .price ins,
+    .products .product .price:not(:has(del)) .woocommerce-Price-amount{
+        font-size: 19px;
+    }
+}
+
+/* ==========================================================================
+   9. FALLBACK ДЛЯ БРАУЗЕРОВ БЕЗ :has()
+   --------------------------------------------------------------------------
+   Safari < 15.4 / Firefox < 121 не поддерживают :has().
+   В этом случае цена без скидки остаётся обычной, что тоже выглядит ок.
+   ========================================================================== */
+
+@supports not selector(:has(*)){
+    .products .product .price{
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--heading, #1a1a1a);
+    }
+    .products .product .price ins,
+    .products .product .price del{
+        font-size: inherit;
+    }
+}
